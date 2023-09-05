@@ -1,0 +1,3 @@
+interface Kata {
+    fun main()
+}
