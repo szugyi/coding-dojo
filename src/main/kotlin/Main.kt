@@ -1,8 +1,12 @@
 import dojo1.WordWrap
+import dojo2.NumbersInWords
 
-val katas = listOf<Kata>(WordWrap)
-fun main(args: Array<String>) {
-    katas.forEach {
-        it.main()
+private val katas = listOf(WordWrap, NumbersInWords)
+fun main() {
+    katas.forEachIndexed { i, kata ->
+        if (0 < i) {
+            println("\n--------------------------------\n")
+        }
+        kata.main()
     }
 }
