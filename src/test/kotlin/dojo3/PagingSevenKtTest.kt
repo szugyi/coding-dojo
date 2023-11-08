@@ -10,6 +10,8 @@ class PagingSevenKtTest {
     fun `simple paging`() {
         assertEquals("1 (2) 3 4 5", createPaging(2, 5))
         assertEquals("1 2 3 4 5 (6) 7", createPaging(6, 7))
+        assertEquals("(1) 2 3 4 5 6 7", createPaging(1, 7))
+        assertEquals("1 2 3 4 5 6 (7)", createPaging(7, 7))
     }
 
     @Test
@@ -22,11 +24,13 @@ class PagingSevenKtTest {
     fun `long paging in first part`() {
         assertEquals("1 (2) 3 4 5 … 9", createPaging(2, 9))
         assertEquals("1 2 3 (4) 5 … 9", createPaging(4, 9))
+        assertEquals("(1) 2 3 4 5 … 9", createPaging(1, 9))
     }
 
     @Test
     fun `long paging in second part`() {
         assertEquals("1 … 5 6 7 (8) 9", createPaging(8, 9))
         assertEquals("1 … 5 (6) 7 8 9", createPaging(6, 9))
+        assertEquals("1 … 5 6 7 8 (9)", createPaging(9, 9))
     }
 }
